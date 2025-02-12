@@ -9,6 +9,7 @@ return new class extends Migration {
     public function up(): void
     {
         DB::unprepared('
+            DROP PROCEDURE IF EXISTS GetHallsWithFacilities;
             CREATE PROCEDURE GetHallsWithFacilities()
             BEGIN
                 SELECT halls.id, halls.name, halls.capacity, halls.price_per_hour, 
@@ -26,3 +27,4 @@ return new class extends Migration {
         DB::unprepared('DROP PROCEDURE IF EXISTS GetHallsWithFacilities');
     }
 };
+
